@@ -1,16 +1,12 @@
-export class Ruleta {
-  private id: string;
-  private fabricante: string;
+import { JuegoDeCasino } from "./juegoDeCasino";
 
-  constructor(id: string, fabricante: string) {
-    this.id = id;
-    this.fabricante = fabricante;
+export class Ruleta extends JuegoDeCasino {
+  private premio: number;
+  constructor(id: string, fabricante: string, premio: number) {
+    super(id, fabricante);
+    this.premio = premio;
   }
-  getInfo() {
-    return `
-    Description: ${this.id}
-    Fabricante: ${this.fabricante}
-    `;
+  getInfoRuleta(): Ruleta {
+    return this;
   }
-  
 }

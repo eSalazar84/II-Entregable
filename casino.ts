@@ -7,29 +7,23 @@ export class Casino {
   private numHabilitacion: number;
   private inicioActividades: Date;
   private ruleta: Ruleta;
-  private tragamonedas: Tragamonedas;
-  constructor(nombreDeFantasia: string,ubicacion: string,numHabilitacion: number,inicioActividades: Date,ruleta: Ruleta,tragamonedas: Tragamonedas) {
+  private tragamoneda: Tragamonedas;
+  constructor(
+    nombreDeFantasia: string,
+    ubicacion: string,
+    numHabilitacion: number,
+    inicioActividades: Date,
+    ruleta: Ruleta,
+    tragamoneda: Tragamonedas
+  ) {
     this.nombreDeFantasia = nombreDeFantasia;
     this.ubicacion = ubicacion;
     this.numHabilitacion = numHabilitacion;
     this.inicioActividades = inicioActividades;
     this.ruleta = ruleta;
-    this.tragamonedas = tragamonedas;
+    this.tragamoneda = tragamoneda;
   }
-  private dateFormat(date: Date): string {
-    return date.toLocaleDateString("es-AR");
-  }
-  getInfo(): string {
-    return `
-        Nombre de Fantasia:    ${this.nombreDeFantasia}
-        Ubicacion del Est.:    ${this.ubicacion}
-        Num. de Habilitacion:  ${this.numHabilitacion}
-        Inicio de Actividades: ${this.dateFormat(
-          this.inicioActividades
-        )}        
-        Juegos que la componen:
-            Ruletas:      ${this.ruleta}
-            Tragamonedas: ${this.tragamonedas}
-        `;
+  getInfo(): Casino {
+    return this;
   }
 }

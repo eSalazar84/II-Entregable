@@ -7,13 +7,6 @@ export class Tragamonedas extends JuegoDeCasino {
     super(id, fabricante);
     this.color = color;
   }
-  getInfoTragamonedas(): string {
-    return `
-    Description: ${this.id}
-    Fabricante: ${this.fabricante}
-    Color: ${this.color}
-    `;
-  }
   setIsPlayerWin(): string {
     const machine = ["Siete", "Banana", "Cara_Triste"];
     let fichas: number = Number(
@@ -32,10 +25,13 @@ export class Tragamonedas extends JuegoDeCasino {
         console.log(`Congrats... You Win!!!`);
         return ` Tu saldo es de USD ${pozo}.-`;
       } else {
-        pozo=pozo+5
+        pozo = pozo + 5;
         console.log(`Ups... Try Again...`);
       }
     }
     return ` Tu saldo es de USD ${accum}.-`;
+  }
+  getInfoTragamonedas(): Tragamonedas {
+    return this;
   }
 }
